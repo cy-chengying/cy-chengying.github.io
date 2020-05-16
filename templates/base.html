@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="hero-unit well">
+				<h1>
+					Hello, {{ request.session.user_name }},欢迎来到二手闲置交易平台    <a class="btn btn-large btn-danger pull-right" type="button" href="/logout/">登出</a>
+				</h1>
+				<p>这是一个二手闲置物品交易平台,希望大家友善交流,诚信买卖.</p>
+			<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="{% url 'sale_good:showImg'%}">首页</a>
+	</div>
+	<div>
+		<ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    物品分类
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="#"><a href="#">书本类</a></li>
+			        <li><a href="#">食品类</a></li>
+                    <li><a href="#">物品类</a></li>
+                    <li><a href="#">日用品类</a></li>
+                    <li><a href="#">其他类</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'homepage:message_board' %}">留言板</a></li>
+            <li><a href="{% url 'sale_good:saleindex' %}">出售物品</a></li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					快捷导航栏
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#">书本类</a></li>
+					<li><a href="#">食品类</a></li>
+					<li><a href="#">物品类</a></li>
+                    <li><a href="#">日用品类</a></li>
+                    <li><a href="#">其他类</a></li>
+					<li class="divider"></li>
+					<li><a href="{% url 'homepage:message_board' %}">留言板</a></li>
+					<li class="divider"></li>
+					<li><a href="{% url 'sale_good:saleindex' %}">出售物品</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+</nav>
+
+            <div style="background: none; border:none;margin-left:70em;color: #aaaaaa;">
+	            <form class="navbar-form search-form " action="{% url 'homepage:search' %}">
+                    <div class="form-group">
+                        <input name="wd" class="form-control" type="text" placeholder="输入搜索内容">
+                    </div>
+                    <button class="btn btn-default" contenteditable="true" type="submit" style="background: none; border:none;margin-left:-3em;color: #aaaaaa;">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </form>
+            </div>
+{% block content %}
+
+
+{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

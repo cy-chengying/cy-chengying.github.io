@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}支付页面{% endblock %}
+
+{% block content %}
+    <form action="/sale_good/pay/">
+        <input type="text" name="money">
+        <input type="submit" value="支付">
+    </form>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索页面</title>
+</head>
+<body>
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {% if search_word == '' %}
+                    <h1>您没有输入搜索内容</h1>
+                    <p>你可以试着输入文字，如：书本</p>
+                {% else %}
+                    <h1>搜索“{{ search_word }}”,找到{{ search_message_count }}个结果</h1>
+                    <hr>
+                    {% for message in page_of_message %}
+                        <a href="{% url 'homepage:message_board' %}"></a>
+                        <p>{{ message.content | striptags }}</p>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    <div class="row" style="display: flex;justify-content: center;">
+        {% if page_of_message.has_previous %}
+            <a class="btn btn-default" href="{% url 'homepage:search' %}?wd={{ search_word }}&page={{ page_of_message.previous_page_number }}">
+            上一页
+            </a>
+        {% endif %}
+        {% if page_of_message.has_next %}
+            <a class="btn btn-default" href="{% url 'homepage:search' %}?wd={{ search_word }}&page={{ page_of_message.next_page_number }}">
+            下一页
+            </a>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>

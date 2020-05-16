@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block title %}闲置二手物品销售平台{% endblock %}
+{% block content %}
+
+<div class="tabbable tabs-below" id="tabs-972946"> <!-- Only required for left/right tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#panel-125424" data-toggle="tab">书本类</a>
+        </li>
+        <li class="">
+            <a href="#panel-947621" data-toggle="tab">食品类</a>
+        </li>
+        <li class="">
+            <a href="#panel-947622" data-toggle="tab">物品类</a>
+        </li>
+        <li class="">
+            <a href="#panel-947623" data-toggle="tab">日用品类</a>
+        </li>
+        <li class="">
+            <a href="#panel-947624" data-toggle="tab">其他</a>
+        </li>
+    </ul>
+{#书本类内容#}
+    <div class="tab-content">
+        <div class="tab-pane active" id="panel-125424"  >
+            <div class="row" id="panel-125424" >
+                {% for item in imgs %}
+                    {% if item.sort == 'book' %}
+                        <div class="col-sm-4 col-md-4" >    {# 写在这里面就是每个都换行了 #}
+                            <div class="thumbnail" >
+                                <img src="{{ item.img_url.url }}" alt="#" style="height: 300px;width: 350px" >
+                                    <div class="caption">
+                                        <h3 style="font-size: 20px">联系邮箱：<span>{{ item.email }}</span></h3>
+                                        <p style="font-size: 20px">出售价格：<span style="color: #ac2925;font-size: 25px">{{ item.money }}</span> 元</p>
+                                        <p><span>物品概述：</span>{{ item.description }}</p>
+                                        <p>
+                                            <a class="btn btn-primary" href="#"  type="button" >
+                                                购买
+                                            </a>
+                                        </p>
+                                    </div>
+                            </div>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+{#   食品类内容#}
+    <div class="tab-pane" id="panel-947621" >
+        <div class="row" id="panel-947621" >
+                {% for item in imgs %}
+                    {% if item.sort == 'food' %}
+                        <div class="col-sm-4 col-md-4" >    {# 写在这里面就是每个都换行了 #}
+                            <div class="thumbnail" >
+                                <img src="{{ item.img_url.url }}" alt="#" style="height: 300px;width: 350px" >
+                                    <div class="caption">
+                                        <h3 style="font-size: 20px">联系邮箱：<span>{{ item.email }}</span></h3>
+                                        <p style="font-size: 20px">出售价格：<span style="color: #ac2925;font-size: 25px">{{ item.money }}</span> 元</p>
+                                        <p><span>物品概述：</span>{{ item.description }}</p>
+                                        <p>
+                                            <a class="btn btn-primary" href="#"  type="button" >
+                                                购买
+                                            </a>
+                                        </p>
+                                    </div>
+                            </div>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+
+{#  物品类内容 #}
+    <div class="tab-pane" id="panel-947622" >
+      <div class="row" id="panel-947622" >
+                {% for item in imgs %}
+                    {% if item.sort == 'res' %}
+                        <div class="col-sm-4 col-md-4" >    {# 写在这里面就是每个都换行了 #}
+                            <div class="thumbnail" >
+                                <img src="{{ item.img_url.url }}" alt="#" style="height: 300px;width: 350px" >
+                                    <div class="caption">
+                                        <h3 style="font-size: 20px">联系邮箱：<span>{{ item.email }}</span></h3>
+                                        <p style="font-size: 20px">出售价格：<span style="color: #ac2925;font-size: 25px">{{ item.money }}</span> 元</p>
+                                        <p><span>物品概述：</span>{{ item.description }}</p>
+                                        <p>
+                                            <a class="btn btn-primary" href="#"  type="button" >
+                                                购买
+                                            </a>
+                                        </p>
+                                    </div>
+                            </div>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+{#  日用品类内容#}
+    <div class="tab-pane" id="panel-947623" >
+      <div class="row" id="panel-947623" >
+                {% for item in imgs %}
+                    {% if item.sort == 'necessary' %}
+                        <div class="col-sm-4 col-md-4" >    {# 写在这里面就是每个都换行了 #}
+                            <div class="thumbnail" >
+                                <img src="{{ item.img_url.url }}" alt="#" style="height: 300px;width: 350px" >
+                                    <div class="caption">
+                                        <h3 style="font-size: 20px">联系邮箱：<span>{{ item.email }}</span></h3>
+                                        <p style="font-size: 20px">出售价格：<span style="color: #ac2925;font-size: 25px">{{ item.money }}</span> 元</p>
+                                        <p><span>物品概述：</span>{{ item.description }}</p>
+                                        <p>
+                                            <a class="btn btn-primary" href="#"  type="button" >
+                                                购买
+                                            </a>
+                                        </p>
+                                    </div>
+                            </div>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+{#   其他类#}
+    <div class="tab-pane" id="panel-947624" >
+      <div class="row" id="panel-947624" >
+                {% for item in imgs %}
+                    {% if item.sort == 'other' %}
+                        <div class="col-sm-4 col-md-4" >    {# 写在这里面就是每个都换行了 #}
+                            <div class="thumbnail" >
+                                <img src="{{ item.img_url.url }}" alt="#" style="height: 300px;width: 350px" >
+                                    <div class="caption">
+                                        <h3 style="font-size: 20px">联系邮箱：<span>{{ item.email }}</span></h3>
+                                        <p style="font-size: 20px">出售价格：<span style="color: #ac2925;font-size: 25px">{{ item.money }}</span> 元</p>
+                                        <p><span>物品概述：</span>{{ item.description }}</p>
+                                        <p>
+                                            <a class="btn btn-primary" href="#"  type="button" >
+                                                购买
+                                            </a>
+                                        </p>
+                                    </div>
+                            </div>
+                         </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    </div>
+{# 5结束#}
+
+{#分页#}
+{% for contact in contacts %}
+    {# 每个"contact"都是一个Contact模型对象. #}
+    {{ contact.full_name|upper }}<br />
+    <div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endfor %}
+
+
+
+{#    切换卡结束#}
+    </div>
+</div>
+
+
+{% endblock %}

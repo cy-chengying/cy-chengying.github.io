@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}出售物品{% endblock %}
+{% block content %}
+
+    <div>
+        <blockquote>
+            <p>
+				在这里你可以出售你想要出售的物品
+            </p> <small>出售 <cite>物品</cite></small>
+		</blockquote>
+    </div>
+<div>
+       <form action="{% url 'sale_good:salegood'%}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+               {# 输入交易金额 #}
+    <label >交易金额:</label><input type="text" name="money"><br /><br />
+         {#     输入联系邮箱#}
+    <label >联系邮箱:</label><input type="text" name="email"><br /><br />
+        {#     选择种类#}
+    <select name="sort">
+          <option value="none" selected disabled hidden>种类选择</option>
+          <option value="book">书本类</option>
+          <option value="food">食品类</option>
+          <option value="res">物品类</option>
+          <option value="necessary">日用品类</option>
+          <option value="other">其他类</option>
+    </select>
+         <br /><br />
+    <input type="file" name="img" >
+    <div class="form-group" >
+		<label for="name">这里输入物品的详细描述</label>
+        <br>
+		 <textarea  name="content" placeholder="详细描述" style="width: 529px;height: 104px"></textarea>
+	</div>
+    <button type="submit" class="btn btn-info" onclick="mesbox()">确定</button>
+        </table>
+     </form>
+    <script language="JavaScript">
+    function mesbox() {
+        alert("提交成功");
+    }
+    </script>
+</div>
+{% load static %}
+    <div class="photo"><img src="{% static 'sale_good/image/saleright.jpg' %}" alt="通用占位符" style="float: right;width: 650px;height: 430px;margin: -440px 20px 40px 30px"></div>
+{% endblock %}
